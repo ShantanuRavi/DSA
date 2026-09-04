@@ -2,8 +2,13 @@ class Solution {
 public:
     int firstStableIndex(vector<int>& nums, int k) {
         int result = INT_MAX;
+        int maxi = nums[0];
         for(int i = 0; i < nums.size(); i++){
-            int maxi = *max_element(nums.begin(),nums.begin() + i + 1);
+            // int maxi = *max_element(nums.begin(),nums.begin() + i + 1);
+            
+            if(nums[i] > maxi){
+                maxi = nums[i];
+            }
             int mini = *min_element(nums.begin() + i, nums.end());
             int value = maxi - mini;
             if(value <= k){
