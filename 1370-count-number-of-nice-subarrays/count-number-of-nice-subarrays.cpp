@@ -23,8 +23,6 @@ public:
         return result;
     }
     int numberOfSubarrays(vector<int>& nums, int k) {
-       int a = atMost(nums,k);
-       int b = atMost(nums,k - 1);
-       return a - b;
+       return atMost(nums,k) - atMost(nums,k - 1);
     }
 };
